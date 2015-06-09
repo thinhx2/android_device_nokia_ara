@@ -489,3 +489,17 @@ vendor/lib/pp_proc_plugin.so
 vendor/lib/libmmstillomx.so
 vendor/lib/libmmrtpdecoder.so
 vendor/lib/libimage-jpeg-enc-omx-comp.so
+
+# JB audio blobs
+bin/NVUpdater
+bin/mm-audio-ftm
+lib/hw/audio.primary.msm8610.so
+lib/hw/audio_policy.msm8610.so
+lib/libalsa-intf.so
+etc/audio_effects.conf
+etc/audio_policy.conf
+vendor/lib/libalsautils.so
+vendor/lib/libaudioalsa.so
+etc/snd_soc_msm/snd_soc_msm_8x10_wcd
+etc/snd_soc_msm/snd_soc_msm_8x10_wcd_skuaa
+etc/snd_soc_msm/snd_soc_msm_8x10_wcd_skuab

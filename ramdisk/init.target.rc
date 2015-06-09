@@ -157,6 +157,14 @@ service nokia_baseband /system/bin/sh /system/etc/init.nokia.baseband.sh
     user root
     oneshot
 
+#
+# Updates modem items, if needed at boot
+#
+service NVUpdater /system/bin/NVUpdater -m
+    class core
+    user root
+    oneshot
+
 # Performance profiles
 # Powersave
 on property:sys.perf.profile=0

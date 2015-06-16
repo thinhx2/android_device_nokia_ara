@@ -1,0 +1,28 @@
+From 30acd032d120a7034ab16c3adc0354b3272db661 Mon Sep 17 00:00:00 2001
+From: zombah <zombah@gmail.com>
+Date: Tue, 16 Jun 2015 16:34:14 +0300
+Subject: [PATCH] libstagefright: JB audio blob support
+
+Always return false to canOffloadStream
+
+Change-Id: I9e8d9e711622ad2d616b7d91b6ae98cfffb221a8
+Signed-off-by: zombah <zombah@gmail.com>
+---
+ media/libstagefright/Utils.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/media/libstagefright/Utils.cpp b/media/libstagefright/Utils.cpp
+index d43f5af..92902f6 100644
+--- a/media/libstagefright/Utils.cpp
++++ b/media/libstagefright/Utils.cpp
+@@ -600,6 +600,7 @@ const struct mime_conv_t* p = &mimeLookup[0];
+ bool canOffloadStream(const sp<MetaData>& meta, bool hasVideo, const sp<MetaData>& vMeta,
+                       bool isStreaming, audio_stream_type_t streamType)
+ {
++    return false;
+     const char *mime;
+     CHECK(meta->findCString(kKeyMIMEType, &mime));
+ 
+-- 
+1.8.4.5
+

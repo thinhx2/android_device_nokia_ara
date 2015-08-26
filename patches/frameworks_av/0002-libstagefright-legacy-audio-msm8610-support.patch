@@ -1,0 +1,13 @@
+diff --git a/media/libstagefright/Android.mk b/media/libstagefright/Android.mk
+index af55235..fafaefc 100644
+--- a/media/libstagefright/Android.mk
++++ b/media/libstagefright/Android.mk
+@@ -108,7 +108,7 @@ ifneq ($(filter caf bfam,$(TARGET_QCOM_AUDIO_VARIANT)),)
+             LOCAL_SRC_FILES += LPAPlayerALSA.cpp TunnelPlayer.cpp
+             LOCAL_CFLAGS += -DUSE_TUNNEL_MODE
+         endif
+-        ifneq ($(filter msm8660 msm7x30 msm7x27a,$(TARGET_BOARD_PLATFORM)),)
++        ifneq ($(filter msm8610 msm8660 msm7x30 msm7x27a,$(TARGET_BOARD_PLATFORM)),)
+             LOCAL_SRC_FILES += LPAPlayer.cpp
+             LOCAL_CFLAGS += -DLEGACY_LPA
+         endif

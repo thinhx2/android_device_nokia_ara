@@ -89,8 +89,8 @@
     <!-- Boolean indicating if current platform supports BLE peripheral mode -->
     <bool name="config_bluetooth_le_peripheral_mode_supported">true</bool>
 
-    <!-- Boolean indicating whether Softap requires reloading AP firmware -->
-    <bool name="config_wifiApFirmwareReload">false</bool>
+    <!-- Boolean indicating whether Softap requires reloading AP firmware
+    <bool name="config_wifiApFirmwareReload">false</bool> -->
 
     <!-- Boolean indicating whether the wifi chipset has dual frequency band support -->
     <bool translatable="false" name="config_wifi_dual_band_support">true</bool>
@@ -181,8 +181,8 @@
             >http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
     <!-- Configuration to restart radio upon PDP_DEACTIVATE with
-         error cause as Regular deactivation(36). -->
-    <bool name="config_radio_reset_on_regular_deactivation">false</bool>
+         error cause as Regular deactivation(36).
+    <bool name="config_radio_reset_on_regular_deactivation">false</bool> -->
 
     <!-- Enable overlay for all location components. -->
     <bool name="config_enableNetworkLocationOverlay" translatable="false">false</bool>
@@ -231,13 +231,13 @@
     <integer name="config_deviceHardwareKeys">3</integer>
 
     <!-- Defines the system property to set for performance profile xe: sys.cpu.modes. Leave it
-         blank if the device do not support performance profiles -->
-    <string name="config_perf_profile_prop" translatable="false">sys.perf.profile</string>
+         blank if the device do not support performance profiles 
+    <string name="config_perf_profile_prop" translatable="false">sys.perf.profile</string> -->
 
     <!-- When config_perf_profile_prop is defined, this value MUST be the index of
          one of the listes values in frameworks/base/core/res/res/values/cm_arrays.xml
          for "perf_profile_values" array. Leave it blank if the device do not support
-         performance profiles  -->
-    <string name="config_perf_profile_default_entry" translatable="false">1</string>
+         performance profiles
+    <string name="config_perf_profile_default_entry" translatable="false">1</string> -->
 
 </resources>

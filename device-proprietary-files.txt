@@ -60,9 +60,20 @@ bin/btnvtool
 bin/hci_qcomm_init
 
 # Camera
+etc/camera/dfc/05000300.dfc
+etc/camera/dcc/010B8B04.dcc
+etc/camera/dcc/010B8B03.dcc
+etc/camera/dcc/010B8B02.dcc
+etc/camera/dcc/0107A303.dcc
+etc/camera/dcc/11F50901.dcc
+etc/camera/dcc/0107A302.dcc
+etc/camera/dcc/115B6002.dcc
+etc/camera/dcc/010B8B01.dcc
+etc/camera/dcc/11F50900.dcc
+etc/camera/dcc/0C563A03.dcc
 bin/mm-qcamera-app
 bin/mm-qcamera-daemon
-lib/hw/camera.vendor.msm8610.so
+#lib/hw/camera.vendor.msm8610.so
 lib/libmmcamera_interface.so
 lib/libmmjpeg_interface.so
 lib/libmm-qcamera.so
@@ -318,19 +329,16 @@ bin/fm_qsoc_patches
 bin/fmconfig
 
 # GPS
--app/com.qualcomm.location.apk
 lib/libloc_api_v02.so
 lib/libloc_ds_api.so
+vendor/lib/hw/flp.default.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
 vendor/lib/liblbs_core.so
-vendor/lib/liblocationservice.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libulp2.so
 
 # Nemod Sim security
-bin/nemod
--framework/nemosrv.jar
+#bin/nemod
+#-framework/nemosrv.jar
 
 # OMX
 vendor/lib/libDivxDrm.so
@@ -348,46 +356,47 @@ vendor/lib/libSHIMDivxDrm.so
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libdiag.so
-vendor/lib/libdsi_netctrl.so
-vendor/lib/libdsnetutils.so
-vendor/lib/libdsucsd.so
+-vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
-vendor/lib/libqc-opt.so
-vendor/lib/libqcci_legacy.so
+-vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
-vendor/lib/libqmi.so
-vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_client_qmux.so
-vendor/lib/libqmi_common_so.so
-vendor/lib/libqmi_csi.so
+-vendor/lib/libqmi.so
+-vendor/lib/libqmi_cci.so
+-vendor/lib/libqmi_client_qmux.so
+-vendor/lib/libqmi_common_so.so
+-vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
-vendor/lib/libqmiservices.so
+-vendor/lib/libqmiservices.so
+vendor/lib/libsmemlog.so
+vendor/lib/libsystem_health_mon.so
+vendor/lib/libqmi_csvt_srvc.so
 
 # RIL
--app/qcrilmsgtunnel.apk
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+-app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
+bin/qmuxd
 bin/radish
 bin/rfs_access
 bin/rmt_storage
-bin/qmuxd
-etc/permissions/qcrilhook.xml
 etc/permissions/qcnvitems.xml
--framework/qcrilhook.jar
--framework/qcnvitems.jar
+etc/permissions/qcrilhook.xml
+framework/qcnvitems.jar
+framework/qcrilhook.jar
+framework/qti-telephony-common.jar
+-lib/libmdmdetect.so
+vendor/lib/libconfigdb.so
+vendor/lib/liblqe.so
 vendor/lib/libnetmgr.so
+-vendor/lib/libperipheral_client.so
 vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
-lib/libmdmdetect.so
-vendor/lib/libperipheral_client.so
-vendor/lib/libsmemlog.so
-vendor/lib/libsystem_health_mon.so
 vendor/lib/libxml.so
+vendor/lib/libqmi_client_helper.so
 
 # Sensors
-lib/hw/sensors.msm8610.so
-vendor/lib/hw/power.qcom.so
 
 # Thermal
 bin/mpdecision
@@ -439,10 +448,10 @@ vendor/lib/libmmiipstreammmihttp.so
 vendor/lib/libmmipl.so
 
 # CNE
-vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
-vendor/lib/libcneqmiutils.so
-vendor/lib/libcneutils.so
+#vendor/lib/libcneapiclient.so
+#vendor/lib/libcneconn.so
+#vendor/lib/libcneqmiutils.so
+#vendor/lib/libcneutils.so
 
 # Unsorted
 vendor/lib/libsurround_proc.so

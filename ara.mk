@@ -132,7 +132,6 @@ PRODUCT_PACKAGES += \
     wcnss_service \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf \
-    dhcpcd.conf \
     hostapd \
     wpa_supplicant \
     wpa_supplicant.conf

@@ -77,6 +77,17 @@ ro.use_data_netmgrd=true
 persist.radio.multisim.config=dsds
 #ro.telephony.ril_class=X2RIL
 
+ro.telephony.ril.config=simactivation
+persist.radio.dont_use_dsd=true
+ro.ril.telephony.mqanelements=4
+persist.radio.oem_socket=false
+
+camera2.portability.force_api=1
+
+ro.min_freq_0=787200
+config.disable_atlas=true
+
+
 # Time services
 persist.timed.enable=true
 

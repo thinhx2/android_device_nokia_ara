@@ -453,7 +453,6 @@ vendor/lib/libdnshostprio.so
 vendor/lib/libCommandSvc.so
 vendor/lib/libmm-hdcpmgr.so
 vendor/lib/libcsd-client.so
-vendor/lib/libbt-vendor.so
 vendor/lib/libSubSystemShutdown.so
 vendor/lib/libsubsystem_control.so
 vendor/lib/libmmhttpstack.so

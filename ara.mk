@@ -118,7 +118,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     rmnetcli \
-    libril_shim
+    libril_shim \
+    librmt_shim
 
 # Wifi
 PRODUCT_PACKAGES += \

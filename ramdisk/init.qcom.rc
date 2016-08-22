@@ -30,7 +30,7 @@ import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    export LD_SHIM_LIBS /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so:/system/lib/hw/camera.vendor.msm8610.so|libshim_nokia_camera.so:/system/lib/libril.so|libril_shim.so
+    export LD_SHIM_LIBS /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so:/system/lib/hw/camera.vendor.msm8610.so|libshim_nokia_camera.so:/system/lib/libril.so|libril_shim.so:/system/lib/libc.so|librmt_shim.so
 
 on init
     # Set permissions for persist partition

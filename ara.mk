@@ -114,6 +114,12 @@ PRODUCT_PACKAGES += \
     qrngd \
     qrngp
 
+# Recovery
+PRODUCT_PACKAGES += \
+    imgdiff
+
+
+
 # Ril
 PRODUCT_PACKAGES += \
     librmnetctl \

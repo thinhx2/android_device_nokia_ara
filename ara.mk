@@ -121,11 +121,11 @@ PRODUCT_PACKAGES += \
 
 
 # Ril
-PRODUCT_PACKAGES += \
-    librmnetctl \
-    rmnetcli \
-    libril_shim \
-    librmt_shim
+#PRODUCT_PACKAGES += \
+#    librmnetctl \
+#    rmnetcli \
+#    libril_shim \
+#    librmt_shim
 
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext

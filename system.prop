@@ -17,6 +17,9 @@ av.offload.enable=false
 av.streaming.offload.enable=false
 tunnel.audio.encode=false
 
+# Bluetooth
+qcom.bluetooth.soc=smd
+
 # Display
 ro.sf.lcd_density=240
 ro.opengles.version=196608

@@ -149,8 +149,10 @@ BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
 BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
 
 # SELinux
+include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     device/nokia/ara/sepolicy
+
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true

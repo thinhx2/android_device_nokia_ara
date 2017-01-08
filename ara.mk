@@ -118,14 +118,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     imgdiff
 
-
-
 # Ril
 #PRODUCT_PACKAGES += \
 #    librmnetctl \
 #    rmnetcli \
 #    libril_shim \
 #    librmt_shim
+
+# Recovery
+PRODUCT_PACKAGES += \
+    sensors.msm8610 \
+    sensors.qcom
 
 # Telephony-ext
 PRODUCT_PACKAGES += telephony-ext

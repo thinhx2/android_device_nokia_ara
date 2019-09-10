@@ -93,7 +93,6 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libdashplayer \
     libdivxdrmdecrypt \
     libmm-omxcore \
     libOmxAacEnc \

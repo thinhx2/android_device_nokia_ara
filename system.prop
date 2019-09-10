@@ -90,7 +90,7 @@ persist.timed.enable=true
 wifi.interface=wlan0
 
 # Dualsim
-persist.radio.multisim.config=dsds
+#persist.radio.multisim.config=dsds
 
 # Custom Java RIL
 #ro.telephony.ril_class=X2RIL

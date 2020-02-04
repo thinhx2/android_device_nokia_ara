@@ -29,7 +29,7 @@ import init.qcom.usb.rc
 import init.target.rc
 
 on early-init
-#    export LD_SHIM_LIBS /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so:/system/lib/hw/camera.vendor.msm8610.so|libshim_nokia_camera.so:/system/lib/libril.so|libril_shim.so:/system/lib/libc.so|librmt_shim.so
+    export LD_SHIM_LIBS /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so:/system/lib/libcamera_client.so|libcamera_parameters_shim.so
 
 on init
     # Set permissions for persist partition
@@ -38,6 +38,10 @@ on init
     symlink /sdcard /storage/sdcard0
 
     symlink /dev/socket/rild1 /dev/socket/rild2
+
+    #Proximity sensor
+    chown system system /sys/class/input/event5/device/enable
+    chmod 0660 /sys/class/input/event5/device/enable
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -308,6 +312,7 @@ service qmuxd /system/bin/qmuxd
 service netmgrd /system/bin/netmgrd
     class main
     disabled
+    group root wifi wakelock radio inet
 
 service sensors /system/bin/sensors.qcom
     class late_start
@@ -476,21 +481,19 @@ service hostapd /system/bin/hostapd -dddd /data/hostapd/hostapd.conf
     oneshot
     disabled
 
-service ril-daemon1 /system/bin/rild -c 1
+service ril-daemon1 /vendor/bin/hw/rild -c 2
     class main
-    socket rild1 stream 660 root radio
-    socket rild-debug1 stream 660 radio system
-    user root
+    user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
-service ril-daemon2 /system/bin/rild -c 2
+service ril-daemon2 /vendor/bin/hw/rild -c 2
     class main
-    socket rild2 stream 660 root radio
-    socket rild-debug2 stream 660 radio system
-    user root
+    user radio
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
+    group radio cache inet misc audio log readproc wakelock
+    capabilities BLOCK_SUSPEND NET_ADMIN NET_RAW
 
 service charger /charger
     class charger

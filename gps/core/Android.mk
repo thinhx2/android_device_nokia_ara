@@ -1,11 +1,10 @@
-ifneq ($(BUILD_TINY_ANDROID),true)
-
 LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libloc_core
 LOCAL_MODULE_OWNER := qcom
+LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_MODULE_TAGS := optional
 
@@ -14,6 +13,7 @@ LOCAL_CFLAGS += -DPDK_FEATURE_SET
 endif
 
 LOCAL_SHARED_LIBRARIES := \
+    liblog \
     libutils \
     libcutils \
     libgps.utils \
@@ -51,5 +51,3 @@ LOCAL_COPY_HEADERS:= \
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
-
-endif # not BUILD_TINY_ANDROID

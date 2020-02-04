@@ -16,28 +16,29 @@
 
 DEVICE_PACKAGE_OVERLAYS += device/nokia/ara/overlay
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/go_defaults.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/nokia/ara/ara-vendor.mk)
 
+# HIDL
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/manifest.xml:system/vendor/manifest.xml
+
 # Audio
 PRODUCT_PACKAGES += \
-    audio_policy.msm8610 \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl \
     audio.primary.msm8610 \
     audio.a2dp.default \
-    audio.r_submix.default \
     audio.usb.default \
+    audio.r_submix.default \
     libaudio-resampler \
-    libaudioutils \
-    libaudioparameter \
-    libqcomvisualizer \
     libqcompostprocbundle \
-    libqcomvoiceprocessing \
-    tinycap \
-    tinymix \
-    tinyplay
-
-
+    libqcomvisualizer \
+    libqcomvoiceprocessing
 # BoringSSL hacks
 PRODUCT_PACKAGES += \
     libboringssl-compat
@@ -45,7 +46,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8610 \
-    libshim_nokia_camera
+    libcamera_parameters_shim
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -107,7 +108,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8610
+    android.hardware.power@1.0-service-qti
 
 # Random
 PRODUCT_PACKAGES += \
@@ -117,6 +118,11 @@ PRODUCT_PACKAGES += \
 # Recovery
 PRODUCT_PACKAGES += \
     imgdiff
+
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/configs/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 # Ril
 #PRODUCT_PACKAGES += \

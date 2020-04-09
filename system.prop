@@ -30,6 +30,7 @@ ro.opengles.version=196608
 debug.composition.type=dyn
 debug.hwc.dynThreshold=1.5
 debug.sf.fb_always_on=1
+debug.hwui.use_buffer_age=false
 
 # GPS
 ro.qc.sdk.izat.premium_enabled=0
@@ -49,6 +50,10 @@ mmp.enable.3g2=true
 media.aac_51_output_enabled=true
 mm.enable.qcom_parser=37491
 vidc.debug.level=1
+
+# treble
+persist.media.treble_omx=false
+camera.disable_treble=true
 
 # Memory
 ro.ksm.default=1
@@ -92,3 +97,6 @@ persist.timed.enable=true
 
 # Wifi
 wifi.interface=wlan0
+
+# Storage
+ro.sys.sdcardfs=false

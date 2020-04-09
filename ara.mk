@@ -17,11 +17,15 @@
 DEVICE_PACKAGE_OVERLAYS += device/nokia/ara/overlay
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
+#$(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
 $(call inherit-product-if-exists, vendor/nokia/ara/ara-vendor.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
+    android.hardware.soundtrigger@2.0-impl \
     audio_policy.msm8610 \
     audio.primary.msm8610 \
     audio.a2dp.default \
@@ -32,20 +36,22 @@ PRODUCT_PACKAGES += \
     libaudioparameter \
     libqcomvisualizer \
     libqcompostprocbundle \
-    libqcomvoiceprocessing \
-    tinycap \
-    tinymix \
-    tinyplay
-
+    libqcomvoiceprocessing
 
 # BoringSSL hacks
 PRODUCT_PACKAGES += \
     libboringssl-compat
 
-# Camera
+# Sensors
 PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+# Camera
+    android.hardware.camera.provider@2.4-impl-legacy \
+    camera.device@1.0-impl-legacy \
     camera.msm8610 \
-    libshim_nokia_camera
+    libshim_nokia_camera \
+    Snap
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -61,11 +67,19 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.memtrack@1.0-impl \
     copybit.msm8610 \
     gralloc.msm8610 \
     hwcomposer.msm8610 \
     memtrack.msm8610 \
     liboverlay
+
+# RenderScript HAL
+PRODUCT_PACKAGES += \
+    android.hardware.renderscript@1.0-impl
 
 # Ebtables
 PRODUCT_PACKAGES += \
@@ -84,14 +98,17 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl \
     gps.msm8610
 
 # Keystore
-#PRODUCT_PACKAGES += \
-#    keystore.msm8610
+PRODUCT_PACKAGES +=  \
+    android.hardware.keymaster@3.0-impl \
+    keystore.msm8610
 
 # Lights
 PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
     lights.msm8610
 
 # Misc
@@ -107,7 +124,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.msm8610
+    android.hardware.power@1.0-service-qti
 
 # Random
 PRODUCT_PACKAGES += \
@@ -134,8 +151,19 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += telephony-ext
 PRODUCT_BOOT_JARS += telephony-ext
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    libbt-vendor
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl
+
+
 # Wifi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service\
     libQWiFiSoftApCfg \
     libwcnss_qmi \
     wcnss_service \
@@ -143,8 +171,8 @@ PRODUCT_PACKAGES += \
     wpa_supplicant_overlay.conf \
     hostapd \
     wpa_supplicant \
-    wpa_supplicant.conf
-
+    wpa_supplicant.conf \
+    wificond
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini \
@@ -177,6 +205,9 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
+
+# Common Android Go configurations
+$(call inherit-product, build/target/product/go_defaults.mk)
 
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi

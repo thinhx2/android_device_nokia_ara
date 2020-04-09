@@ -14,10 +14,12 @@ LOCAL_CFLAGS += -DPDK_FEATURE_SET
 endif
 
 LOCAL_SHARED_LIBRARIES := \
+    liblog \
     libutils \
     libcutils \
     libgps.utils \
-    libdl
+    libdl \
+    libandroid_runtime
 
 LOCAL_SRC_FILES += \
     MsgTask.cpp \
